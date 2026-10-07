@@ -1,0 +1,271 @@
+{
+ "meta": {
+  "crawled": "2026-10-07",
+  "site": "https://www.koenig-fachpersonal.at",
+  "cms": "TYPO3 (BippesBrandão GmbH)",
+  "de_pages_crawled": 59,
+  "note": "Alle Werte wörtlich von der Site. Fehlendes = TODO."
+ },
+ "company": {
+  "name": "KÖNIG Fachpersonal GmbH & Co KG",
+  "address": "Margaretenstraße 28, 1040 Wien",
+  "phone": "+43 (0)1 587 36 63",
+  "fax": "+43 (0)1 587 36 63-14",
+  "email": "wien@koenigkg.at",
+  "fn": "HG Wien, FN 6346 h",
+  "uid": "ATU11441509",
+  "complementary": "KÖNIG Fachpersonal Verwaltungs-GmbH, FN 79308 f",
+  "ceo": "Christian Frühwirth",
+  "business": "Arbeitskräfteüberlassung",
+  "source": "https://www.koenig-fachpersonal.at/de/zentrale/impressum"
+ },
+ "brand": {
+  "primary": "#213A8F",
+  "accent": "#FFCC00 (selten)",
+  "text_dark": "#293346",
+  "greys": [
+   "#9398A2",
+   "#E5EAF4",
+   "#F4F4F5"
+  ],
+  "font": "Gilroy (proprietär, nicht frei)",
+  "logo": "assets/logo.svg",
+  "source": "merged CSS + https://www.koenig-fachpersonal.at/de/zentrale"
+ },
+ "claims": [
+  {
+   "text": "Sichere, feste Jobs fürs Leben!",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale"
+  },
+  {
+   "text": "Mehr als 500 freie Stellen in ganz Österreich!",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale",
+   "flag": "widerspricht öffentlichem Job-Widget (1 Stelle)"
+  },
+  {
+   "text": "Jetzt 200 Euro Startprämie sichern! – nach zwei Monaten Zusammenarbeit",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale"
+  },
+  {
+   "text": "Rund 2.000 qualifizierte Mitarbeiter europaweit, rund 700 in Österreich",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  },
+  {
+   "text": "Familienunternehmen seit 1965 / mehr als 60 Jahre",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale"
+  },
+  {
+   "text": "4 Standorte in Österreich, mehr als 20 in Deutschland",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/wir-sind-rex/rex-geschichte",
+   "flag": "Navigation zeigt nur 3 (Graz, Linz, Wien); Salzburg fehlt"
+  },
+  {
+   "text": "Über 25 Jahre in Linz (Niederlassung seit 1999)",
+   "source": "https://www.koenig-fachpersonal.at/de/linz"
+  },
+  {
+   "text": "Ausschließlich sichere, unbefristete, sozialversicherte Festanstellungen",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  }
+ ],
+ "services": [
+  {
+   "name": "Personalüberlassung / Arbeitskräfteüberlassung (Festanstellung bei KÖNIG, Einsatz beim Kunden)",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  },
+  {
+   "name": "Personalvermittlung (Direktanstellung beim Kunden)",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  },
+  {
+   "name": "Montage / 'Work & Travel' auf Baustellen inkl. Unterkunft",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  },
+  {
+   "name": "Persönlicher Mitarbeiterservice",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile"
+  }
+ ],
+ "industries": {
+  "zentrale": [
+   "Heizung Sanitär",
+   "Elektrik Elektronik",
+   "Klima Lüftung",
+   "Sprinklermontage",
+   "Lager Logistik",
+   "Office",
+   "Metallverarbeitung",
+   "Stahl- und Metallbau",
+   "Technik",
+   "Fahrzeugindustrie",
+   "Produktion",
+   "Handwerk"
+  ],
+  "linz": [
+   "Heizung Sanitär",
+   "Elektrik Elektronik",
+   "Klima Lüftung",
+   "Metallindustrie",
+   "Sprinklermontage",
+   "Lager Logistik"
+  ],
+  "source": [
+   "https://www.koenig-fachpersonal.at/de/zentrale",
+   "https://www.koenig-fachpersonal.at/de/linz"
+  ]
+ },
+ "benefits": [
+  "Unbefristeter Arbeitsvertrag und sozialversichert",
+  "Urlaubs- und Weihnachtsgeld, Empfehlungsprämien",
+  "Bis zu 25 Tage Urlaub pro Jahr",
+  "Sicherheit dank gesundem Familienunternehmen",
+  "Persönliche, vertrauensvolle Atmosphäre",
+  "Entwicklungs- und Weiterbildungsmöglichkeiten bei Bedarf",
+  "Einsätze in der Nähe des Wohnortes",
+  "4 Standorte in Österreich",
+  "Montage-Angebote"
+ ],
+ "benefits_source": "https://www.koenig-fachpersonal.at/de/zentrale/ihre-vorteile",
+ "history": [
+  [
+   "1965",
+   "Gründung in Hamburg"
+  ],
+  [
+   "1969",
+   "erste Niederlassung in Wien"
+  ],
+  [
+   "1975",
+   "Umzug nach Moringen"
+  ],
+  [
+   "1985",
+   "Niederlassung Graz"
+  ],
+  [
+   "1999",
+   "Niederlassung Linz"
+  ],
+  [
+   "2000",
+   "Niederlassung Salzburg"
+  ],
+  [
+   "2025",
+   "Rex in KÖNIG Fachpersonal umfirmiert"
+  ]
+ ],
+ "history_source": "https://www.koenig-fachpersonal.at/de/zentrale/wir-sind-rex/rex-geschichte",
+ "locations": [
+  {
+   "city": "Linz",
+   "address": "Elisabethstraße 1, 4020 Linz",
+   "phone": "+43 (0) 732/77 80 70",
+   "fax": "+43 (0) 732/77 80 70-14",
+   "email": "linz@koenigkg.at",
+   "hours": "Mo–Do 08:00–16:30, Fr 08:00–15:00",
+   "source": "https://www.koenig-fachpersonal.at/de/linz/kontakt",
+   "team": [
+    [
+     "Christian Frühwirth",
+     "Geschäftsführer",
+     "+43 1 587 36 63-11"
+    ],
+    [
+     "Harald Königstorfer",
+     "Kundenberater / Personaldisponent",
+     "+43 732 77 80 70-12"
+    ],
+    [
+     "Kiyan Golkar",
+     "Kundenberater / Personaldisponent",
+     "+43 732 77 80 70-17"
+    ],
+    [
+     "Viktoria Hirdt",
+     "Sachbearbeitung",
+     "+43 732 77 80 70-20"
+    ],
+    [
+     "Jasmin Haumann",
+     "Assistentin der Geschäftsführung",
+     "+43 732 77 80 70-18"
+    ],
+    [
+     "Jasmin Hofer",
+     "Lohnverrechnung",
+     "+43 732 77 80 70-13"
+    ],
+    [
+     "Besnike Redjepi",
+     "Lohnverrechnung",
+     "+43 732 77 80 70-20"
+    ]
+   ]
+  },
+  {
+   "city": "Wien (Zentrale)",
+   "address": "Margaretenstraße 28, 1040 Wien",
+   "phone": "+43 (0) 1/587 3663",
+   "email": "wien@koenigkg.at",
+   "hours": "TODO prüfen",
+   "source": "https://www.koenig-fachpersonal.at/de/wien/kontakt"
+  },
+  {
+   "city": "Graz",
+   "address": "Neuseiersberger Straße 157, 8054 Graz",
+   "phone": "+43 (0) 316/71 72 74",
+   "email": "TODO",
+   "hours": "Mo–Do 08:00–16:30, Fr 08:00–15:00",
+   "source": "https://www.koenig-fachpersonal.at/de/graz/kontakt"
+  },
+  {
+   "city": "Salzburg",
+   "address": "TODO – nur in Historie erwähnt",
+   "source": "https://www.koenig-fachpersonal.at/de/zentrale/wir-sind-rex/rex-geschichte"
+  }
+ ],
+ "testimonials_employees": [
+  {
+   "name": "Viktoria Hirdt",
+   "role": "Sachbearbeitung Linz",
+   "quote": "Ich bin seit 2019 bei der Firma KÖNIG. Hier habe ich nicht nur einen super Arbeitsplatz/Kollegen/innen gefunden sondern auch Freunde fürs Leben.",
+   "source": "https://www.koenig-fachpersonal.at/de/linz"
+  },
+  {
+   "name": "Jülide Gercek",
+   "role": "Sachbearbeitung Linz",
+   "quote": "Ich bin dankbar für das familiäre Miteinander, die Wertschätzung und die Möglichkeit, mich weiterzuentwickeln – und vor allem dafür, motiviert zu werden, das Beste aus mir herauszuholen.",
+   "source": "https://www.koenig-fachpersonal.at/de/linz"
+  },
+  {
+   "name": "Jasmin Hofer",
+   "role": "Personalverrechnung Linz",
+   "quote": "Ich bin seit 2015 bei der Firma KÖNIG und ich hab hier meine zweite Familie gefunden dafür bin ich sehr dankbar.",
+   "source": "https://www.koenig-fachpersonal.at/de/linz"
+  }
+ ],
+ "customer_testimonials": "TODO – keine vorhanden",
+ "client_logos": "TODO – keine vorhanden",
+ "certificates": {
+  "note": "Seite 'zertifikate-pdf' existiert (DE-Bereich), Inhalt TODO",
+  "source": "https://www.koenig-fachpersonal.at/de/unternehmen/zertifikate-pdf"
+ },
+ "jobs": {
+  "provider": "talent360 / bewerbung.jobs Widget (accountId e57991e7-…)",
+  "public_count": 1,
+  "items": [
+   {
+    "title": "Maler und Lackierer - Maler (m/w/d)",
+    "location": "Wien",
+    "type": "Festanstellung (Zeitarbeit)",
+    "industry": "Handwerk",
+    "start": "ab sofort",
+    "salary": "13.23–17.11 EUR/Std",
+    "url": "https://bewerbung.jobs/301744?source=widget"
+   }
+  ],
+  "source": "https://bewerbung.jobs/widget/search (vom Widget auf https://www.koenig-fachpersonal.at/de/linz/lieblingsjob-finden)"
+ }
+}

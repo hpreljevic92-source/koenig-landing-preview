@@ -1,0 +1,250 @@
+---
+import { Image } from 'astro:assets';
+import '../styles.css';
+import c from '../data/content.json';
+import quotes from '../data/quotes.json';
+import hero from '../assets/img/baustelle.jpg';
+import imgBau from '../assets/img/bau.jpg';
+import imgElektro from '../assets/img/elektro.jpg';
+import imgLager from '../assets/img/lager.jpg';
+import imgSchweissen from '../assets/img/schweissen.jpg';
+import imgProd from '../assets/img/produktion.jpg';
+import imgLinz from '../assets/img/linz.jpg';
+const linz = c.locations[0];
+const jobs = c.jobs.items;
+const stand = [
+ {tag:'Firmenzentrale & Niederlassung', name:'Wien', street:'Margaretenstraße 28', zip:'1040 Wien', tel:'+4315873663', telT:'01 / 587 36 63', mail:'wien@koenigkg.at', hours:'Mo–Do 08:00–16:30 · Fr 08:00–15:00', main:true},
+ {tag:'Niederlassung', name:'Linz', street:'Elisabethstraße 1', zip:'4020 Linz', tel:'+43732778070', telT:'0732 / 77 80 70', mail:'linz@koenigkg.at', hours:'Mo–Do 08:00–16:30 · Fr 08:00–15:00'},
+ {tag:'Niederlassung', name:'Graz', street:'Neuseiersberger Straße 157', zip:'8054 Graz', tel:'+43316717274', telT:'0316 / 71 72 74', hours:'Mo–Do 08:00–16:30 · Fr 08:00–15:00'},
+];
+const O = 'https://www.koenig-fachpersonal.at/de/';
+const telLinz = '+43732778070';
+const fach = [
+ {t:'Heizung · Sanitär', img: imgBau},{t:'Elektrik · Elektronik', img: imgElektro},{t:'Klima · Lüftung'},{t:'Sprinklermontage'},
+ {t:'Lager · Logistik', img: imgLager},{t:'Office'},{t:'Metallverarbeitung', img: imgSchweissen},{t:'Stahl- und Metallbau'},
+ {t:'Technik'},{t:'Fahrzeugindustrie'},{t:'Produktion', img: imgProd},{t:'Handwerk'}];
+const tags = [...new Set(jobs.map(j=>j.industry))];
+const ld = [
+ { '@context':'https://schema.org','@type':'EmploymentAgency', name:'KÖNIG Fachpersonal Linz', parentOrganization:{ '@type':'Organization', name:c.company.name }, telephone:'+43 732 77 80 70', email:linz.email, url:O+'linz',
+   address:{ '@type':'PostalAddress', streetAddress:'Elisabethstraße 1', postalCode:'4020', addressLocality:'Linz', addressCountry:'AT' },
+   openingHoursSpecification:[{ '@type':'OpeningHoursSpecification', dayOfWeek:['Monday','Tuesday','Wednesday','Thursday'], opens:'08:00', closes:'16:30' },{ '@type':'OpeningHoursSpecification', dayOfWeek:'Friday', opens:'08:00', closes:'15:00' }], foundingDate:'1965' },
+ ...jobs.map(j=>({ '@context':'https://schema.org','@type':'JobPosting', title:j.title, employmentType:'FULL_TIME', hiringOrganization:{ '@type':'Organization', name:c.company.name }, jobLocation:{ '@type':'Place', address:{ '@type':'PostalAddress', addressLocality:j.location, addressCountry:'AT' } }, datePosted:'2026-10-07', description:`${j.title} – ${j.type}, ${j.industry}. Start: ${j.start}.`, url:j.url }))
+];
+const title = 'Personalüberlassung Linz – KÖNIG Fachpersonal | Fachkräfte seit 1965';
+const desc = 'Personalüberlassung Linz: KÖNIG Fachpersonal stellt Fachkräfte für Bau, Haustechnik, Metall, Produktion und Logistik. Seit 1999 in Linz. Feste Anstellung für Mitarbeiter.';
+const Arrow = '<svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+---
+<html lang="de-AT" class="no-js">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{title}</title><meta name="description" content={desc}>
+<link rel="canonical" href={new URL(import.meta.env.BASE_URL, Astro.site)}>
+<meta property="og:title" content={title}><meta property="og:description" content={desc}><meta property="og:type" content="website"><meta property="og:locale" content="de_AT">
+<meta property="og:image" content={new URL(hero.src, Astro.site)}>
+<link rel="icon" href={import.meta.env.BASE_URL+'apple-touch-icon.png'}>
+<meta name="theme-color" content="#213A8F">
+<script is:inline>document.documentElement.classList.remove('no-js')</script>
+<script type="application/ld+json" set:html={JSON.stringify(ld)}></script>
+</head>
+<body>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:p-3">Zum Inhalt</a>
+<div class="bg-ink text-white text-center text-xs py-1.5 px-4">Konzept-Vorschau · inoffizieller Entwurf, nicht von KÖNIG Fachpersonal veröffentlicht</div>
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
+ <div class="container-x flex h-16 items-center justify-between gap-4">
+  <a href={O+'linz'} aria-label="KÖNIG Fachpersonal – Startseite"><img src={import.meta.env.BASE_URL+'logo.svg'} alt="KÖNIG Fachpersonal" width="120" height="40" class="h-9 w-auto"></a>
+  <nav aria-label="Hauptnavigation" class="hidden md:flex gap-7 text-[15px] font-medium text-muted">
+   <a href="#leistungen" class="hover:text-brand">Leistungen</a><a href="#branchen" class="hover:text-brand">Branchen</a><a href="#jobs" class="hover:text-brand">Jobs</a><a href="#standort" class="hover:text-brand">Standorte</a>
+  </nav>
+  <a href={'tel:'+telLinz} class="btn-call text-sm"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg></span><span class="hidden sm:inline">0732 / 77 80 70</span><span class="sm:hidden">Anrufen</span></a>
+ </div>
+</header>
+
+<aside aria-label="Schnellkontakt" class="fixed right-3 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50 flex md:flex-col gap-2">
+ <a href={'tel:'+telLinz} class="rail rail-call" aria-label="Anrufen: 0732 / 77 80 70"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg><span class="rail-label">0732 / 77 80 70</span></a>
+ <a href={'mailto:'+linz.email} class="rail rail-mail" aria-label={'E-Mail an '+linz.email}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="rail-label">{linz.email}</span></a>
+ <a href="#kontakt" class="rail rail-form" aria-label="Zum Kontaktformular"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="rail-label">Anfrage</span></a>
+</aside>
+<main id="main">
+<section class="relative isolate overflow-hidden">
+ <Image src={hero} alt="Bauarbeiter mit Helm und Warnweste auf einer Baustelle" widths={[640,1024]} sizes="(min-width:1024px) 50vw, 100vw" class="absolute inset-0 -z-10 h-full w-full object-cover lg:left-1/2 lg:w-1/2" loading="eager" fetchpriority="high" format="avif" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/95 to-white/40 lg:to-transparent"></div>
+ <div class="container-x py-20 sm:py-28 lg:py-36">
+  <div class="max-w-xl">
+   <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-ink">Sichere, feste <span class="text-brand">Jobs fürs Leben!</span></h1>
+   <p class="mt-6 text-lg text-muted leading-relaxed">Personalüberlassung in Linz, Wien und Graz. KÖNIG-Fachkräfte unterstützen Unternehmen im Büro, auf der Baustelle, in der Logistik und in der Produktion. Angestellt sind sie bei uns – unbefristet.</p>
+   <p class="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#FFCC00] px-4 py-2 text-sm font-bold text-ink">Jetzt 200 Euro Startprämie sichern!</p>
+   <div class="mt-9 flex flex-col sm:flex-row gap-3">
+    <a href="#kontakt" class="btn-cta">Personal anfragen <Fragment set:html={Arrow}/></a>
+    <a href="#jobs" class="btn-job"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg> Job finden</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section aria-label="KÖNIG in Zahlen" class="border-y border-black/5 bg-brand-50/60">
+ <dl class="container-x grid grid-cols-2 lg:grid-cols-4 gap-y-8 py-10 text-center">
+  <div><dt class="text-sm text-muted">Familienunternehmen</dt><dd class="font-display text-3xl font-extrabold text-brand">seit 1965</dd></div>
+  <div><dt class="text-sm text-muted">KÖNIG-Profis in Österreich</dt><dd class="font-display text-3xl font-extrabold text-brand">ca. 700</dd></div>
+  <div><dt class="text-sm text-muted">Mitarbeiter in der Gruppe</dt><dd class="font-display text-3xl font-extrabold text-brand">rund 2.000</dd></div>
+  <div><dt class="text-sm text-muted">freie Stellen in ganz Österreich</dt><dd class="font-display text-3xl font-extrabold text-brand">500+</dd></div>
+ </dl>
+</section>
+
+<section id="leistungen" class="relative py-24 overflow-hidden">
+ <div class="absolute inset-0 -z-10 bg-[radial-gradient(60%_80%_at_20%_0%,#dfe5f6_0%,transparent_60%),radial-gradient(50%_60%_at_100%_100%,#eef1fa_0%,transparent_60%)]"></div>
+ <div class="container-x">
+ <div class="reveal max-w-2xl"><h2 class=" text-3xl sm:text-4xl font-bold">Was dürfen wir für Sie tun?</h2></div>
+ <div class="mt-12 grid gap-6 md:grid-cols-3">
+  <article class="reveal glass p-8 flex flex-col">
+   <p class="eyebrow">Für Bewerber</p><h3 class="mt-2 text-xl font-bold">Job fürs Leben finden</h3>
+   <p class="mt-3 text-muted leading-relaxed flex-1">Feste, unbefristete Anstellung. Urlaubs- und Weihnachtsgeld. Bis zu 25 Tage Urlaub. Einsätze in der Nähe Ihres Wohnortes.</p>
+   <a href="#jobs" class="btn-job mt-6 self-start">Zu den Jobs <Fragment set:html={Arrow}/></a>
+  </article>
+  <article class="reveal glass p-8 flex flex-col">
+   <p class="eyebrow">Für Unternehmen</p><h3 class="mt-2 text-xl font-bold">Personalüberlassung &amp; Vermittlung</h3>
+   <p class="mt-3 text-muted leading-relaxed flex-1">Unsere Fachkräfte arbeiten in Ihrem Betrieb, angestellt bei KÖNIG. Oder wir finden Mitarbeiter für eine Direktanstellung.</p>
+   <a href="#kontakt" class="btn-cta mt-6 self-start">Personal anfragen <Fragment set:html={Arrow}/></a>
+  </article>
+  <article class="reveal glass p-8 flex flex-col">
+   <p class="eyebrow">Über uns</p><h3 class="mt-2 text-xl font-bold">Familienunternehmen seit 1965</h3>
+   <p class="mt-3 text-muted leading-relaxed flex-1">Gegründet 1965 in Hamburg. Seit 1969 in Wien, seit 1999 in Linz. Seit 2025 heißt Rex in Österreich KÖNIG Fachpersonal.</p>
+   <a href={O+'zentrale/wir-sind-rex/rex-geschichte'} class="btn-ghost2 mt-6 self-start">Unsere Geschichte <Fragment set:html={Arrow}/></a>
+  </article>
+ </div></div>
+</section>
+
+<section id="branchen" class="bg-[#f7f8fb] py-24" aria-labelledby="fb">
+ <div class="container-x">
+  <div class="reveal flex items-end justify-between gap-6">
+   <div><h2 id="fb" class=" text-3xl sm:text-4xl font-bold">Dort, wo angepackt wird.</h2></div>
+   <div class="flex gap-2"><button type="button" class="btn-arrow" data-slide="-1" aria-label="Zurück"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="btn-arrow" data-slide="1" aria-label="Weiter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  </div>
+  <ul id="slider" class="mt-10 flex items-start gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:thin]" tabindex="0" aria-label="Fachbereiche">
+   {fach.map(b=>(
+    <li class="snap-start shrink-0 w-[78%] sm:w-[45%] lg:w-[31%] overflow-hidden rounded-3xl bg-white ring-1 ring-black/5">
+     {b.img ? <Image src={b.img} alt="" widths={[400,700]} sizes="(min-width:1024px) 31vw, 80vw" class="aspect-[4/3] w-full object-cover" format="avif" /> : <div class="aspect-[4/3] w-full bg-gradient-to-br from-brand to-brand-dark grid place-items-center text-white/90 font-display text-2xl font-bold px-6 text-center">{b.t}</div>}
+     <p class="px-6 py-6 font-bold text-lg leading-snug">{b.t}</p>
+    </li>))}
+  </ul>
+ </div>
+</section>
+
+<section class="container-x py-24" aria-labelledby="ablauf">
+ <div class="reveal max-w-2xl"><h2 id="ablauf" class=" text-3xl sm:text-4xl font-bold">So einfach geht's.</h2></div>
+ <ol class="mt-12 grid gap-8 md:grid-cols-3">
+  {[['Anfrage','Sie rufen an oder schreiben uns. Wir klären Ihren Bedarf.'],['Auswahl','Wir suchen passende Fachkräfte aus unserem Netzwerk.'],['Einsatz','Ihre neuen Kollegen starten. Ein fixer Ansprechpartner bleibt für Sie da.']].map(([t,d],i)=>(
+   <li class="reveal relative pl-16"><span class="absolute left-0 top-0 grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 font-display text-lg font-extrabold text-brand">{i+1}</span><h3 class="font-bold text-lg">{t}</h3><p class="mt-1.5 text-muted">{d}</p></li>))}
+ </ol>
+</section>
+
+<section id="jobs" class="bg-ink text-white py-24">
+ <div class="container-x">
+  <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+   <div><h2 class=" text-3xl sm:text-4xl font-bold">Mehr als 500 freie Stellen in ganz Österreich!</h2>
+    <p class="mt-3 text-white/75 max-w-xl">Unbefristete Festanstellung, Urlaubs- und Weihnachtsgeld, bis zu 25 Tage Urlaub. Dazu 200 Euro Startprämie nach zwei Monaten.</p></div>
+   <div class="flex flex-wrap gap-2" role="group" aria-label="Jobs filtern">
+    <button type="button" class="chip" aria-pressed="true" data-filter="*">Alle</button>
+    {tags.map(t=><button type="button" class="chip" aria-pressed="false" data-filter={t}>{t}</button>)}
+   </div>
+  </div>
+  <ul class="mt-10 grid gap-4" id="joblist">
+   {jobs.map(j=>(
+    <li data-tag={j.industry} class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+     <div><h3 class="font-bold text-lg">{j.title}</h3><p class="mt-1 text-white/75 text-sm">{j.location} · {j.type} · {j.industry} · {j.start}{j.salary && ` · ${j.salary.replace('.',',')}`}</p></div>
+     <a href={j.url} class="btn-job shrink-0" rel="noopener">Zur Stelle <Fragment set:html={Arrow}/></a>
+    </li>))}
+  </ul>
+  <a href={O+'zentrale/lieblingsjob-finden'} class="btn-cta mt-8">Alle Stellen ansehen <Fragment set:html={Arrow}/></a>
+  <p class="mt-6 text-sm text-white/60">Auswahl live aus dem KÖNIG-Jobportal (Stand 07.10.2026). Weitere Jobs auf Anfrage: <a class="underline" href={'tel:'+telLinz}>0732 / 77 80 70</a>.</p>
+ </div>
+</section>
+
+<section id="standort" class="container-x py-24">
+ <div class="reveal max-w-2xl"><h2 class=" text-3xl sm:text-4xl font-bold">4 Mal in Österreich, immer in Ihrer Nähe.</h2><p class="mt-3 text-muted">Europaweit erfolgreich. In Wien zuhause.</p></div>
+ <div class="mt-12 grid gap-6 lg:grid-cols-3">
+  {stand.map(l=>(
+   <article class={`reveal rounded-3xl p-7 ring-1 ${l.main?'bg-brand text-white ring-brand':'bg-white ring-black/5'}`}>
+    <p class={`eyebrow ${l.main?'!text-[#FFCC00]':''}`}>{l.tag}</p><h3 class="mt-2 text-xl font-bold">{l.name}</h3>
+    <address class={`mt-3 not-italic ${l.main?'text-white/85':'text-muted'}`}>{l.street}<br>{l.zip}</address>
+    {l.hours && <p class={`mt-2 text-sm ${l.main?'text-white/80':'text-muted'}`}>{l.hours}</p>}
+    <div class="mt-5 flex flex-wrap items-center gap-3"><a href={'tel:'+l.tel} class="btn-call"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg></span>{l.telT}</a>
+    {l.mail && <a href={'mailto:'+l.mail} class={`text-sm font-semibold underline-offset-4 hover:underline ${l.main?'text-white':'text-brand'}`}>{l.mail}</a>}</div>
+   </article>))}
+ </div>
+ <div class="mt-10 grid gap-8 lg:grid-cols-2 items-start">
+  <div class="reveal"><h3 class="font-bold text-lg">Ihre Ansprechpartner in Linz</h3>
+   <ul class="mt-4 grid sm:grid-cols-2 gap-3">
+    {linz.team.slice(0,4).map(([n,r,t])=>(
+     <li class="rounded-2xl bg-[#f7f8fb] p-4"><p class="font-semibold">{n}</p><p class="text-sm text-muted">{r}</p><a class="link-arrow text-sm" href={'tel:'+t.replace(/[^+\d]/g,'')}>{t}</a></li>))}
+   </ul></div>
+  <div class="reveal relative overflow-hidden rounded-3xl aspect-[4/3]" id="map">
+   <Image src={imgLinz} alt="Linz an der Donau bei Nacht" widths={[600,1000]} sizes="(min-width:1024px) 50vw, 100vw" class="h-full w-full object-cover" format="avif" />
+   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+   <div class="absolute bottom-6 left-6 right-6">
+    <button type="button" class="btn-map" id="loadmap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Karte Linz laden</button>
+    <p class="mt-3 text-xs text-white/85">Beim Laden werden Daten an OpenStreetMap übertragen.</p>
+   </div></div>
+ </div>
+</section>
+
+<section class="bg-brand-50/60 py-24" aria-labelledby="stimmen">
+ <div class="container-x">
+  <div class="reveal max-w-2xl"><h2 id="stimmen" class=" text-3xl sm:text-4xl font-bold">Danke, KÖNIG!</h2></div>
+  <div class="mt-10 grid gap-6 md:grid-cols-3">
+   {quotes.map(t=>(
+    <figure class="reveal rounded-3xl bg-white p-7 ring-1 ring-black/5"><blockquote class="text-ink leading-relaxed">„{t.quote}“</blockquote><figcaption class="mt-5 text-sm"><span class="font-semibold">{t.name}</span><br><span class="text-muted">{t.role}</span></figcaption></figure>))}
+  </div>
+ </div>
+</section>
+
+<section id="kontakt" class="container-x py-24">
+ <div class="grid gap-12 lg:grid-cols-5">
+  <div class="lg:col-span-2 reveal"><h2 class=" text-3xl sm:text-4xl font-bold">Personal anfragen.</h2><p class="mt-4 text-muted">Schreiben Sie uns. Oder rufen Sie direkt an.</p>
+   <a href={'tel:'+telLinz} class="btn-cta mt-8">0732 / 77 80 70 anrufen <Fragment set:html={Arrow}/></a></div>
+  <form id="form" class="lg:col-span-3 grid gap-5 rounded-3xl bg-white p-7 sm:p-9 ring-1 ring-black/5 shadow-[0_30px_60px_-40px_rgba(15,20,35,.18)]" novalidate>
+   <p class="rounded-xl bg-[#fff8db] px-4 py-2 text-sm text-ink">Demo-Formular: Es werden keine Daten gesendet.</p>
+   <div class="grid sm:grid-cols-2 gap-5">
+    <label class="grid gap-1.5 text-sm font-medium">Firma<input name="firma" autocomplete="organization" class="rounded-xl border border-black/15 px-4 py-3 text-base focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></label>
+    <label class="grid gap-1.5 text-sm font-medium">Vor- und Nachname *<input name="name" required autocomplete="name" class="rounded-xl border border-black/15 px-4 py-3 text-base focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></label>
+    <label class="grid gap-1.5 text-sm font-medium">E-Mail *<input name="email" type="email" required autocomplete="email" class="rounded-xl border border-black/15 px-4 py-3 text-base focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></label>
+    <label class="grid gap-1.5 text-sm font-medium">Telefon<input name="tel" type="tel" autocomplete="tel" class="rounded-xl border border-black/15 px-4 py-3 text-base focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></label>
+   </div>
+   <label class="grid gap-1.5 text-sm font-medium">Ihre Nachricht *<textarea name="msg" required rows="4" class="rounded-xl border border-black/15 px-4 py-3 text-base focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></textarea></label>
+   <div aria-hidden="true" class="absolute -left-[9999px]"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label class="flex gap-3 text-sm text-muted"><input type="checkbox" name="dsgvo" required class="mt-1 h-4 w-4 accent-[#213A8F]"><span>Ich habe die <a class="link-arrow" href={O+'linz/datenschutz'}>Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zu. *</span></label>
+   <p id="formmsg" class="text-sm font-medium" role="status" aria-live="polite"></p>
+   <button type="submit" class="btn-submit">Anfrage absenden <Fragment set:html={Arrow}/></button>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer class="bg-ink text-white/80">
+ <div class="container-x py-12 grid gap-8 sm:grid-cols-3 text-sm">
+  <div><p class="font-semibold text-white">{c.company.name}</p><p class="mt-2">Standort Linz · Elisabethstraße 1 · 4020 Linz</p></div>
+  <div><p class="font-semibold text-white">Weitere Standorte</p><p class="mt-2">Wien (Zentrale) · Linz · Graz</p></div>
+  <nav aria-label="Rechtliches" class="flex gap-5 sm:justify-end"><a class="hover:text-white underline-offset-4 hover:underline" href={O+'linz/impressum'}>Impressum</a><a class="hover:text-white underline-offset-4 hover:underline" href={O+'linz/datenschutz'}>Datenschutz</a></nav>
+ </div>
+ <p class="container-x pb-8 text-xs text-white/60">Konzept-Vorschau. Bilder: rawpixel (CC0), Wikimedia Commons „Linz Donau Austria“ von Lemur1000 (CC0).</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true');
+  const f=b.dataset.filter; document.querySelectorAll<HTMLElement>('#joblist li').forEach(li=>li.hidden=!(f==='*'||li.dataset.tag===f));
+}));
+document.querySelectorAll<HTMLButtonElement>('[data-slide]').forEach(b=>b.addEventListener('click',()=>{const sl=document.getElementById('slider')!; sl.scrollBy({left:Number(b.dataset.slide)*sl.clientWidth*0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}));
+document.getElementById('loadmap')?.addEventListener('click',()=>{
+  const m=document.getElementById('map')!; m.innerHTML='<iframe title="Karte: Elisabethstraße 1, 4020 Linz" class="h-full w-full border-0" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=14.284%2C48.299%2C14.302%2C48.309&layer=mapnik&marker=48.3040%2C14.2930"></iframe>';
+});
+const form=document.getElementById('form') as HTMLFormElement, msg=document.getElementById('formmsg')!;
+form.addEventListener('submit',e=>{ e.preventDefault();
+  if((form.elements.namedItem('website') as HTMLInputElement).value) return;
+  if(!form.checkValidity()){ msg.textContent='Bitte füllen Sie alle Pflichtfelder (*) korrekt aus.'; msg.className='text-sm font-medium text-red-700'; (form.querySelector(':invalid') as HTMLElement)?.focus(); return; }
+  msg.textContent='Danke! (Demo – es wurde nichts gesendet.)'; msg.className='text-sm font-medium text-green-800'; form.reset();
+});
+</script>
+</body></html>
