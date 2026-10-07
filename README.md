@@ -6,7 +6,7 @@
 ## Lokal
     cd site && npm ci && npm run build && npx astro preview   # http://localhost:4321
 
-## Deploy GitHub Pages (erst nach Freigabe!)
+## Deploy GitHub Pages (Branch gh-pages)
     cd site
     SITE_URL=https://<user>.github.io BASE_PATH=/<repo>/ npm run build
     # dist/ in Branch gh-pages pushen, z. B.: npx gh-pages -d dist
